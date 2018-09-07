@@ -31,7 +31,7 @@ if (args.length < 3) {
 if (args[2] == "createGenesisBlock") {
   dbInterface.getBlockHeight()
   .then((currentBlockHeight) => {
-    if (currentBlockHeight == 0) {
+    if (currentBlockHeight == -1) {
       blockChain.addBlock(new Block("Genesis block #1"));
     } else {
       console.log("There is already a genesis block in your blockchain. Please create blocks using the createBlocks command!")
@@ -46,7 +46,7 @@ if (args[2] == "createGenesisBlock") {
   
   dbInterface.getBlockHeight()
   .then((currentBlockHeight) => {
-    if (currentBlockHeight != 0) {
+    if (currentBlockHeight != -1) {
       let numOfBlocks = parseInt(args[3])
       addBlocks(numOfBlocks, currentBlockHeight)
     } else {

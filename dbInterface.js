@@ -43,7 +43,7 @@ exports.getBlock = (key) => {
 exports.getBlockHeight = () => {
   return new Promise(function(resolve, reject) {
     db.get("height", function(err, value) {
-      if (err) resolve(0);
+      if (err) resolve(-1);
       resolve(parseInt(value));
     })
   })
@@ -66,6 +66,6 @@ exports.getAllBlocks = () => {
     })
     .on('close', function() {
       resolve(blocks);
-    })
+2    })
   });  
 }

@@ -1,4 +1,5 @@
-# Project 3: Private blockchain w/ webservice
+# Project 3: Private blockchain w/ webservice (uses Express.js framework)
+
 #### How to run:
 1. Run ```npm install```
 2. Use the command ```node server.js```

@@ -35,7 +35,7 @@ app.get('/block/:blockHeight', function(req, res) {
 
   dbInterface.getBlock(blockHeight)
   .then((block) => {
-    res.json({"success": true, "block": block})
+    res.json(block)
     return;
   })
   .catch((err) => {
@@ -53,7 +53,7 @@ app.post('/block/', function (req, res) {
   blockChain.addBlock(new Block(blockData))
   .then((newBlock) => {
     console.log(newBlock)
-    res.json({"success": true, "block": newBlock});
+    res.json(newBlock);
     return; 
   }).catch((err) => {
     res.status(500).json({"success": false, "error": "Error while adding your block to the chain"});
@@ -61,4 +61,4 @@ app.post('/block/', function (req, res) {
   })
 });
 
-app.listen(3000, () => console.log('Blockchain web service running on port 3000'))
+app.listen(8000, () => console.log('Blockchain web service running on port 3000'))
