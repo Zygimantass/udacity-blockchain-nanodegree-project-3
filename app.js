@@ -46,8 +46,9 @@ app.get('/block/:blockHeight', function(req, res) {
 
 app.post('/block/', function (req, res) {
   let blockData = req.body.data;
-  if (blockData === undefined) {
-    blockData = "";
+  if (blockData === "" || blockData === undefined) {
+  	res.status(400).json({"success": false, "error": "Your block data is empty!"});
+	return
   }
 
   blockChain.addBlock(new Block(blockData))
