@@ -28,15 +28,20 @@ class Blockchain {
         newBlock.height = height + 1;
         newBlock.time = new Date().getTime().toString().slice(0,-3); // timestamp is in UTC format
 
-        if (height > 0) {
+        if (height >= 0) {
           return dbInterface.getBlock(height);
         } else {
           return undefined;
         }
       })
       .then((lastBlock) => {
-        if (lastBlock !== undefined) newBlock.previousBlockHash = lastBlock.hash;
-        newBlock.hash = SHA256(JSON.stringify(newBlock)).toString();
+        if (lastBlock !== undefined) {
+			newBlock.previousBlockHash = lastBlock.hash;
+			console.log(lastBlock);
+		} else {
+			console.log(lastBlock);
+		}
+		newBlock.hash = SHA256(JSON.stringify(newBlock)).toString();
         console.log("added")
         return dbInterface.addBlock(newBlock.height, newBlock);
       })

@@ -61,4 +61,16 @@ app.post('/block/', function (req, res) {
   })
 });
 
+console.log(blockChain.getBlockHeight())
+
+blockChain.getBlockHeight().then((blockHeight) => {
+	if (blockHeight == -1) {
+		return blockChain.addBlock(new Block("Genesis block"));
+	}
+})
+.catch((err) => {
+	console.error("Genesis block creation failed!");
+	quit();
+});
+
 app.listen(8000, () => console.log('Blockchain web service running on port 8000'))

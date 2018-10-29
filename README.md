@@ -2,8 +2,8 @@
 
 #### How to run:
 1. Run ```npm install```
-2. Use the command ```node server.js```
-3. Your server is going to run on port ```3000```
+2. Use the command ```node app.js```
+3. Your server is going to run on port ```8000```
 
 ### Endpoints:
 | Type | Endpoint   | Function                                                                  |
