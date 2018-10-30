@@ -45,7 +45,7 @@ app.get('/block/:blockHeight', function(req, res) {
 })
 
 app.post('/block/', function (req, res) {
-  let blockData = req.body.data;
+  let blockData = req.body.body;
   if (blockData === "" || blockData === undefined) {
   	res.status(400).json({"success": false, "error": "Your block data is empty!"});
 	return
